@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this research corpus, please cite this repository release and the relevant upstream dataset publications."
+title: "Corpus of Hate Speech from Ten Datasets: Historical MSc Corpus and Audited Research Workflow"
+type: dataset
+authors:
+  - family-names: Wiczewa
+    given-names: Monika
+repository-code: "https://github.com/monikawiczewa/hate-speech-corpus"
+url: "https://github.com/monikawiczewa/hate-speech-corpus"
+abstract: >-
+  Complete research repository for a corpus integrating ten existing hate-speech
+  and related subjective-language datasets, developed for a University of
+  Sheffield MSc dissertation in 2025. Includes original source files, cleaned
+  and tokenized corpora, notebooks, historical splits, and a separately audited
+  2026 group-aware splitting and verification workflow. The corrected pipeline
+  verifies 257576 usable cleaned records and prevents normalized-exact sentence
+  groups from crossing partitions; no new model-performance result is claimed.
+keywords:
+  - hate speech
+  - natural language processing
+  - subjectivity
+  - dataset integration
+  - corpus
+  - reproducibility
