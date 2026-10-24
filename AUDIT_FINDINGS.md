@@ -1,6 +1,6 @@
 # Full-corpus audit — 24 October 2026
 
-Completed locally using all ten `clean/Dataset_1.txt` through `Dataset_10.txt` files. Input SHA-256 hashes and full aggregate results are in [audit.json](reports/audit.json); independent serialized-file checks are in [verification.json](reports/verification.json). No generated corpus text is committed or uploaded as an artifact.
+Completed locally and in GitHub Actions using all ten `clean/Dataset_1.txt` through `Dataset_10.txt` files. Input SHA-256 hashes and full aggregate results are in [audit.json](reports/audit.json); independent serialized-file checks are in [verification.json](reports/verification.json). No generated corpus text is committed or uploaded as an artifact.
 
 ## Initial failure and fix
 
@@ -78,4 +78,10 @@ Within-partition duplicates remain, including in held-out sets, and may affect w
 
 ## CI evidence
 
-The final successful run and commit are recorded below after GitHub execution.
+- Verified implementation commit: `d77f0a3b9b0a29ee478481c52979f6a315def467`.
+- [Successful full-data run #2](https://github.com/monikawiczewa/hate-speech-corpus/actions/runs/40121164262), 24 October 2026: **success**, 30 seconds total.
+- All six tests, both full-corpus executions, independent CSV validation, deterministic byte comparisons and committed-report comparisons passed.
+- Artifact `corrected-split-audit` contains only `audit.json` and `verification.json`; retained for 30 days. Aggregate copies in `reports/` remain in git.
+- Non-blocking runner notices: existing action versions declare Node 20 (GitHub runs them under Node 24), and `ubuntu-latest` migration. Python is fixed at 3.11; input and output SHA-256 hashes make this execution checkable.
+- Documentation-only follow-up commits also trigger the complete workflow; see the repository Actions page for their run conclusions.
+
