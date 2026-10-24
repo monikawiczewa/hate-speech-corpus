@@ -1,0 +1,26 @@
+{
+  "title": "Corpus of Hate Speech from Ten Datasets: Historical MSc Corpus and Audited Research Workflow",
+  "upload_type": "dataset",
+  "description": "<p>Complete historical MSc research corpus integrating ten existing hate-speech and related subjective-language datasets, developed by Monika Wiczewa at the University of Sheffield. The archive includes original source datasets, cleaned and tokenized text, notebooks, historical experiment files, and a separate audited 2026 group-aware splitting and verification workflow.</p><p>The audited workflow processes 257,576 usable cleaned records, assigns normalized-identical sentence groups to the same split, and oversamples training only. These are data-integrity results, not new model-performance results. Source attribution and licence evidence are recorded in SOURCES.md and BIBLIOGRAPHY.md; no uniform licence for all third-party upstream text is asserted.</p>",
+  "creators": [
+    {
+      "name": "Wiczewa, Monika",
+      "affiliation": "University of Sheffield (MSc research)"
+    }
+  ],
+  "keywords": [
+    "hate speech",
+    "subjectivity",
+    "NLP",
+    "dataset integration",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/monikawiczewa/hate-speech-corpus",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Full repository snapshot, including upstream dataset copies and historical artifacts. Consult SOURCES.md for source-specific attribution and unresolved licence details. No blanket licence is claimed for third-party material."
+}
