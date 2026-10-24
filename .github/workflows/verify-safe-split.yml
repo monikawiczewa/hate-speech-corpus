@@ -2,7 +2,11 @@ name: Verify leakage-safe corpus split
 on:
   push:
     paths:
-      - 'scripts/safe_split.py'
+      - 'scripts/*.py'
+      - 'clean/Dataset_*.txt'
+      - 'AUDIT_FINDINGS.md'
+      - 'CORRECTED_SPLIT.md'
+      - 'reports/*.json'
       - 'tests/test_safe_split.py'
       - '.github/workflows/verify-safe-split.yml'
   workflow_dispatch:
@@ -20,20 +24,24 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Run full corrected split and assert zero normalized duplicate overlap
         run: python scripts/safe_split.py --input clean --output split_data_corrected --seed 42
-      - name: Verify report and record counts
+      - name: Independently verify saved full-corpus splits
+        run: python scripts/verify_split.py --input clean --output split_data_corrected
+      - name: Reproduce full output with the same seed
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          a=json.loads(Path('split_data_corrected/audit.json').read_text())
-          assert a['normalized_text_overlap_between_splits']==0
-          assert sum(a['before_oversampling'].values())==a['input_records']
-          assert a['after_oversampling']['val']==a['before_oversampling']['val']
-          assert a['after_oversampling']['test']==a['before_oversampling']['test']
-          print(json.dumps(a,indent=2))
-          PY
+          python scripts/safe_split.py --input clean --output split_data_repeat --seed 42 > /dev/null
+          cmp split_data_corrected/train.csv split_data_repeat/train.csv
+          cmp split_data_corrected/val.csv split_data_repeat/val.csv
+          cmp split_data_corrected/test.csv split_data_repeat/test.csv
+          cmp split_data_corrected/audit.json split_data_repeat/audit.json
+      - name: Check committed aggregate reports
+        run: |
+          cmp reports/audit.json split_data_corrected/audit.json
+          cmp reports/verification.json split_data_corrected/verification.json
       - uses: actions/upload-artifact@v4
         with:
           name: corrected-split-audit
-          path: split_data_corrected/audit.json
+          path: |
+            split_data_corrected/audit.json
+            split_data_corrected/verification.json
+          if-no-files-found: error
           retention-days: 30

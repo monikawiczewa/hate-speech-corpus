@@ -1,14 +1,17 @@
-# Corrected split workflow (experimental)
-
-Run from the repository root:
+# Corrected full-corpus split
 
 ```bash
 python -m unittest discover -s tests -v
 python scripts/safe_split.py --input clean --output split_data_corrected --seed 42
+python scripts/verify_split.py --input clean --output split_data_corrected
 ```
 
-This standard-library script reads the ten existing cleaned CSV-like text files, removes repeated `sentence,intent` headers, groups records by Unicode-normalized, casefolded, whitespace-normalized sentence, assigns each entire group to one split (approximately 60/20/20), and oversamples **training only**. It writes `train.csv`, `val.csv`, `test.csv` and `audit.json` to a new output directory. It refuses to overwrite existing nonempty output directories. Historical `split_data/` remains unchanged.
+Python 3.11, standard library only. Reads exactly Dataset_1.txt through Dataset_10.txt; deliberately excludes the combined Dataset_All.txt to avoid double counting. Supports explicit pandas index,sentence,intent headers and ordinary sentence,intent CSV. Repeated headers and empty fields are counted and excluded. Invalid UTF-8, malformed CSV and invalid indexed rows abort rather than silently dropping data. Output must be new/empty; original files are never overwritten.
 
-**Validation guarantee:** normalized-exact duplicate text cannot occur across the new train/validation/test sets, even if labels conflict. This does **not** rule out paraphrase/near-duplicate leakage, leakage via source datasets, or other evaluation biases. Splitting is group-aware but **not stratified**; class proportions may vary. Oversampling creates repeated records within training, intentionally.
+Groups use NFKC, casefold and whitespace collapse. Whole groups, including conflicting labels, are assigned deterministically to approximately 60/20/20 partitions with seed 42. Stable sorted keys precede seeded shuffling. Only training is oversampled to its largest class. Original sentence values, labels and source IDs are preserved in held-out CSVs.
 
-**Important:** This workflow is a proposed correction, not a claim that the full corpus was executed or validated in this environment. Review `audit.json` after running, and verify class distributions, input provenance, licences, and any source-level leakage before a benchmark release. Existing notebooks are preserved for historical reproducibility.
+Verified full-data result: 257,590 CSV records; 10 headers and 4 empty rows excluded; 257,576 usable records; 233,305 groups. Before oversampling: 154,545 train, 51,516 validation, 51,515 test. After: 410,000 train; held-out counts unchanged. All three normalized-exact overlap counts are zero. See [AUDIT_FINDINGS.md](AUDIT_FINDINGS.md) for distributions, source overlap, conflicts and limitations.
+
+The independent verifier reloads input and serialized output, verifies record conservation, unchanged held-out multisets, training-only replication, conflicting-group confinement, counts and pairwise overlap. CI executes the complete pipeline twice and compares byte hashes/content, then checks aggregate reports against committed results. Only audit.json and verification.json are uploaded as artifacts (30 days); aggregate copies persist in reports/. Generated CSVs are ignored and not published pending rights review.
+
+This is not a source-held-out or semantic-leakage-free benchmark. There are 2,727 conflicting-label groups and residual punctuation-insensitive overlap candidates (27/29/7). Do not reuse historical oversample-before-split performance as validation of this corrected split. Original notebooks and historical results remain unchanged.

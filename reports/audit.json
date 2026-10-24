@@ -1,0 +1,254 @@
+{
+  "schema_version": 2,
+  "normalization": "Unicode NFKC, casefold, whitespace collapse",
+  "ingestion": {
+    "raw_csv_records": 257590,
+    "header_rows": 10,
+    "empty_rows": 4,
+    "malformed_rows": 0,
+    "files": {
+      "Dataset_1.txt": {
+        "raw_csv_records": 24763,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 24762,
+        "sha256": "64d4497a9a5dc54348ac8890a285381b887467bbfcce61ce2291ecb1d844c860",
+        "columns": 3
+      },
+      "Dataset_2.txt": {
+        "raw_csv_records": 14506,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 14505,
+        "sha256": "feea01027abd663aabfcab0c033778ee3b694b4addcb22d033e321263f66bf71",
+        "columns": 3
+      },
+      "Dataset_3.txt": {
+        "raw_csv_records": 76498,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 76497,
+        "sha256": "7fdc25d41ca3a7ad2cbfff22f762065acb22a300c0c2b77e941f1a45d9649f18",
+        "columns": 3
+      },
+      "Dataset_4.txt": {
+        "raw_csv_records": 20149,
+        "header_rows": 1,
+        "empty_rows": 1,
+        "valid_records": 20147,
+        "sha256": "6ba9f26ecd676fbeb1c53d5818fffe3ade362abc59916fd7b352fa4f31330cc5",
+        "columns": 3
+      },
+      "Dataset_5.txt": {
+        "raw_csv_records": 10555,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 10554,
+        "sha256": "41fe2496799772aa090258df237d2fae812185142a3242e2001a7d626f6631aa",
+        "columns": 3
+      },
+      "Dataset_6.txt": {
+        "raw_csv_records": 19571,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 19570,
+        "sha256": "f1dd6a049497cab44f82bfc1d0eb3bf9457f21cf6d850f0757079300d9c41eb1",
+        "columns": 3
+      },
+      "Dataset_7.txt": {
+        "raw_csv_records": 40624,
+        "header_rows": 1,
+        "empty_rows": 1,
+        "valid_records": 40622,
+        "sha256": "81fade1e8f5454e94d699a3172422ceed540ad2f606451eda562c438859aaab3",
+        "columns": 3
+      },
+      "Dataset_8.txt": {
+        "raw_csv_records": 31443,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 31442,
+        "sha256": "babad82097b82d2f6b52cb942add516a4c2b4842a86432f9bf4cf51de3fc354b",
+        "columns": 3
+      },
+      "Dataset_9.txt": {
+        "raw_csv_records": 15392,
+        "header_rows": 1,
+        "empty_rows": 0,
+        "valid_records": 15391,
+        "sha256": "55206d9b8412cb81a5343f92424167d31e9df1865c1ba2f4f5314066cb2a57dc",
+        "columns": 3
+      },
+      "Dataset_10.txt": {
+        "raw_csv_records": 4089,
+        "header_rows": 1,
+        "empty_rows": 2,
+        "valid_records": 4086,
+        "sha256": "d77ca445606f658cae9e2766c2064261d2b88260a69156337cd3bb1e70149015",
+        "columns": 3
+      }
+    }
+  },
+  "class_counts_before_oversampling": {
+    "train": {
+      "Cyberbullying": 4540,
+      "Hate": 21927,
+      "Neither": 12544,
+      "No Hate": 36119,
+      "Normal": 4862,
+      "Not cyberbullying": 4739,
+      "Not offensive": 27208,
+      "Offensive": 41000,
+      "Racism": 595,
+      "Sexism": 1011
+    },
+    "val": {
+      "Cyberbullying": 1490,
+      "Hate": 7457,
+      "Neither": 4328,
+      "No Hate": 11842,
+      "Normal": 1613,
+      "Not cyberbullying": 1535,
+      "Not offensive": 9095,
+      "Offensive": 13611,
+      "Racism": 176,
+      "Sexism": 369
+    },
+    "test": {
+      "Cyberbullying": 1571,
+      "Hate": 7423,
+      "Neither": 4193,
+      "No Hate": 11751,
+      "Normal": 1733,
+      "Not cyberbullying": 1516,
+      "Not offensive": 9210,
+      "Offensive": 13608,
+      "Racism": 174,
+      "Sexism": 336
+    }
+  },
+  "input_class_counts": {
+    "Cyberbullying": 7601,
+    "Hate": 36807,
+    "Neither": 21065,
+    "No Hate": 59712,
+    "Normal": 8208,
+    "Not cyberbullying": 7790,
+    "Not offensive": 45513,
+    "Offensive": 68219,
+    "Racism": 945,
+    "Sexism": 1716
+  },
+  "duplicate_groups": 12615,
+  "duplicate_records_beyond_first": 24271,
+  "records_in_conflicting_groups": 8964,
+  "cross_source_duplicate_groups": 913,
+  "pairwise_source_overlap": {
+    "1-2": 41,
+    "1-3": 0,
+    "1-4": 34,
+    "1-5": 4,
+    "1-6": 21,
+    "1-7": 20,
+    "1-8": 13,
+    "1-9": 13,
+    "1-10": 11,
+    "2-3": 0,
+    "2-4": 42,
+    "2-5": 27,
+    "2-6": 37,
+    "2-7": 24,
+    "2-8": 46,
+    "2-9": 24,
+    "2-10": 8,
+    "3-4": 0,
+    "3-5": 0,
+    "3-6": 0,
+    "3-7": 0,
+    "3-8": 0,
+    "3-9": 0,
+    "3-10": 0,
+    "4-5": 7,
+    "4-6": 15,
+    "4-7": 21,
+    "4-8": 10,
+    "4-9": 7,
+    "4-10": 4,
+    "5-6": 92,
+    "5-7": 15,
+    "5-8": 139,
+    "5-9": 89,
+    "5-10": 1,
+    "6-7": 21,
+    "6-8": 182,
+    "6-9": 447,
+    "6-10": 18,
+    "7-8": 17,
+    "7-9": 18,
+    "7-10": 16,
+    "8-9": 158,
+    "8-10": 5,
+    "9-10": 8
+  },
+  "pairwise_normalized_overlap": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "seed": 42,
+  "input_records": 257576,
+  "skipped_header_rows": 10,
+  "skipped_empty_rows": 4,
+  "unique_normalized_text_groups": 233305,
+  "groups_with_conflicting_labels": 2727,
+  "before_oversampling": {
+    "train": 154545,
+    "val": 51516,
+    "test": 51515
+  },
+  "after_oversampling": {
+    "train": 410000,
+    "val": 51516,
+    "test": 51515
+  },
+  "class_counts": {
+    "train": {
+      "Cyberbullying": 41000,
+      "Hate": 41000,
+      "Neither": 41000,
+      "No Hate": 41000,
+      "Normal": 41000,
+      "Not cyberbullying": 41000,
+      "Not offensive": 41000,
+      "Offensive": 41000,
+      "Racism": 41000,
+      "Sexism": 41000
+    },
+    "val": {
+      "Cyberbullying": 1490,
+      "Hate": 7457,
+      "Neither": 4328,
+      "No Hate": 11842,
+      "Normal": 1613,
+      "Not cyberbullying": 1535,
+      "Not offensive": 9095,
+      "Offensive": 13611,
+      "Racism": 176,
+      "Sexism": 369
+    },
+    "test": {
+      "Cyberbullying": 1571,
+      "Hate": 7423,
+      "Neither": 4193,
+      "No Hate": 11751,
+      "Normal": 1733,
+      "Not cyberbullying": 1516,
+      "Not offensive": 9210,
+      "Offensive": 13608,
+      "Racism": 174,
+      "Sexism": 336
+    }
+  },
+  "normalized_text_overlap_between_splits": 0,
+  "warning": "Exact normalized-text grouping only; semantic near-duplicates, source-level leakage and upstream rights not verified."
+}

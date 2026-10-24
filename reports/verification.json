@@ -1,0 +1,60 @@
+{
+  "independent_verification": "passed",
+  "raw_csv_records": 257590,
+  "pairwise_normalized_overlap": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "held_out_record_multisets_unchanged": true,
+  "conflicting_label_groups_kept_together": true,
+  "training_only_replication": true,
+  "punctuation_insensitive_overlap": {
+    "train-val": 27,
+    "train-test": 29,
+    "val-test": 7
+  },
+  "source_ids_in_splits": {
+    "train": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "val": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "test": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  "output_sha256": {
+    "train": "d62a91510d40251aafaa717e117fe92748489eaa49602f397943cd22ff1d52df",
+    "val": "385921f4e7a080236b1c02bb84c5c8e4c01a58ffb71a99b45c9c28d81a75a434",
+    "test": "e3f27e134ecc9bc491e034ecd8ca17112726dad8f274fee0886f66af4f8ae470"
+  }
+}
