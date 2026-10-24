@@ -2,6 +2,9 @@ cff-version: 1.2.0
 message: "If you use this research corpus, please cite this repository release and the relevant upstream dataset publications."
 title: "Corpus of Hate Speech from Ten Datasets: Historical MSc Corpus and Audited Research Workflow"
 type: dataset
+version: "1.0.0"
+doi: "10.5281/zenodo.23624421"
+date-released: 2026-10-24
 authors:
   - family-names: Wiczewa
     given-names: Monika
